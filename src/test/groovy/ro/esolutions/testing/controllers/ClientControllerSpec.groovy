@@ -14,16 +14,16 @@ class ClientControllerSpec extends Specification{
     def controller = new ClientController(clientService)
 
     def 'get all clients'() {
-
         when:
         def response = controller.getAllClients()
 
         then:
-        1 * clientService.getAllClients() >> [aClientModel(), aClientModel(id:2)] // se apeleaza o singura data
-        0 * _ // se face doar o singura apelare ne mai existand alta apleare
+       /* 1 * clientService.getAllClients() >> [aClientModel(), aClientModel(id:2)]*/ // se apeleaza o singura data
+        1 * clientService.getAllClients() >> [aClientModel()]
+        0 * _ // se face doar o singura apelare ne mai existand alta
 
         and:
         response.statusCode == HttpStatus.OK
-        response.getBody() == []
+        response.getBody() == [aClientModel()]
     }
 }
