@@ -3,6 +3,7 @@ package ro.esolutions.testing.controllers;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ro.esolutions.testing.models.ClientModel;
 import ro.esolutions.testing.services.ClientService;
@@ -23,7 +24,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public void saveClient(@RequestBody ClientModel clientModel) {
+    public void saveClient(@RequestBody @Validated ClientModel clientModel) {
         clientService.saveOrUpdate(clientModel);
     }
 
