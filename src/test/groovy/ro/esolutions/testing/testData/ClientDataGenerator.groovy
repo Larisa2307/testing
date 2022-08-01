@@ -9,8 +9,8 @@ class ClientDataGenerator {
 
     static ClientModel aClientModel(Map override = [:]) {
         Map defaults = [
-                id: 1,
-                name: 'Gigi'
+                id: 100,
+                name: 'George'
         ]
         defaults << override
         new ClientModel(defaults)
