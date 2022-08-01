@@ -37,5 +37,6 @@ class ClientControllerIT extends Specification{
         then:
         result.statusCode == HttpStatus.OK
         result.getBody() == [aClientModel()]
+
     }
 }
